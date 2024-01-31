@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2eb7b757c1ec4ea48c68fba81b13d85d" Name="Diagram1">
+        <EntityTypeShape EntityType="SoXoTuChon_BenTreModel.Dai" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoXoTuChon_BenTreModel.Level" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoXoTuChon_BenTreModel.Lo" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoXoTuChon_BenTreModel.Menu" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoXoTuChon_BenTreModel.AutoGenerateCode" Width="1.5" PointX="9.375" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoXoTuChon_BenTreModel.TaiKhoanHeThong" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoXoTuChon_BenTreModel.PhanQuyen" Width="1.5" PointX="8.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoXoTuChon_BenTreModel.PhieuDuThuong" Width="1.5" PointX="3.75" PointY="19" IsExpanded="true" />
+        <AssociationConnector Association="SoXoTuChon_BenTreModel.FK_PhanQuyen_TaiKhoanHeThong" />
+        <AssociationConnector Association="SoXoTuChon_BenTreModel.FK_PhieuDuThuong_TaiKhoanHeThong" />
+        <EntityTypeShape EntityType="SoXoTuChon_BenTreModel.Games" Width="1.5" PointX="3" PointY="12.25" />
+        <EntityTypeShape EntityType="SoXoTuChon_BenTreModel.NapTien" Width="1.5" PointX="3" PointY="8.125" />
+        <EntityTypeShape EntityType="SoXoTuChon_BenTreModel.RutTien" Width="1.5" PointX="3" PointY="26.625" />
+        <EntityTypeShape EntityType="SoXoTuChon_BenTreModel.TraThuong" Width="1.5" PointX="3" PointY="23.125" />
+        <AssociationConnector Association="SoXoTuChon_BenTreModel.FK_Games_TaiKhoanHeThong" />
+        <AssociationConnector Association="SoXoTuChon_BenTreModel.FK_NapTien_TaiKhoanNap" />
+        <AssociationConnector Association="SoXoTuChon_BenTreModel.FK_NapTien_TaiKhoanXacNhan" />
+        <AssociationConnector Association="SoXoTuChon_BenTreModel.FK_RutTien_TaiKhoanRut" />
+        <AssociationConnector Association="SoXoTuChon_BenTreModel.FK_RutTien_TaiKhoanXacNhan" />
+        <AssociationConnector Association="SoXoTuChon_BenTreModel.FK_TraThuong_TaiKhoanTraThuong" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

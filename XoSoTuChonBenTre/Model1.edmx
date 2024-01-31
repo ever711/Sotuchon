@@ -1,0 +1,852 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SoXoTuChon_BenTreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AutoGenerateCode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="int" Nullable="false" />
+          <Property Name="TablePattern" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Dai">
+          <Key>
+            <PropertyRef Name="IDDai" />
+          </Key>
+          <Property Name="IDDai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaDai" Type="nchar" MaxLength="10" />
+          <Property Name="TenDai" Type="nvarchar(max)" />
+          <Property Name="Mien" Type="int" />
+          <Property Name="Thu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Games">
+          <Key>
+            <PropertyRef Name="IDGame" />
+          </Key>
+          <Property Name="IDGame" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgayChoi" Type="int" />
+          <Property Name="MaDai" Type="nchar" MaxLength="10" />
+          <Property Name="Lo" Type="nchar" MaxLength="10" />
+          <Property Name="So" Type="nchar" MaxLength="10" />
+          <Property Name="SoTien" Type="float" />
+          <Property Name="IDTaiKhoan" Type="int" Nullable="false" />
+          <Property Name="XacNhan" Type="bit" />
+          <Property Name="ThoiGianDat" Type="nchar" MaxLength="10" />
+          <Property Name="Loai" Type="int" />
+        </EntityType>
+        <EntityType Name="Level">
+          <Key>
+            <PropertyRef Name="LevelID" />
+          </Key>
+          <Property Name="LevelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LevelCode" Type="nchar" MaxLength="10" />
+          <Property Name="LevelName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Lo">
+          <Key>
+            <PropertyRef Name="IDLo" />
+          </Key>
+          <Property Name="IDLo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaLo" Type="nchar" MaxLength="10" />
+          <Property Name="TenLo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Loai" Type="int" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="menu_id" />
+          </Key>
+          <Property Name="menu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="menu_title" Type="nvarchar(max)" />
+          <Property Name="menu_description" Type="nvarchar(max)" />
+          <Property Name="menu_url" Type="nvarchar(max)" />
+          <Property Name="menu_valuepath" Type="text" />
+          <Property Name="menu_parent_id" Type="int" />
+          <Property Name="menu_order" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NapTien">
+          <Key>
+            <PropertyRef Name="IDNap" />
+          </Key>
+          <Property Name="IDNap" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgayNap" Type="int" />
+          <Property Name="IDTaiKhoanNap" Type="int" Nullable="false" />
+          <Property Name="SoTien" Type="float" />
+          <Property Name="NganHang" Type="nvarchar(max)" />
+          <Property Name="XacNhan" Type="bit" />
+          <Property Name="IDTaiKhoanXacNhan" Type="int" />
+          <Property Name="NgayXacNhan" Type="int" />
+          <Property Name="HinhDinhKem" Type="nvarchar(max)" />
+          <Property Name="LyDo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PhanQuyen">
+          <Key>
+            <PropertyRef Name="AuthorDetailsID" />
+          </Key>
+          <Property Name="AuthorDetailsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDTaiKhoan" Type="int" Nullable="false" />
+          <Property Name="menu_id" Type="int" />
+          <Property Name="them" Type="bit" />
+          <Property Name="sua" Type="bit" />
+          <Property Name="xoa" Type="bit" />
+          <Property Name="inan" Type="bit" />
+        </EntityType>
+        <EntityType Name="PhieuDuThuong">
+          <Key>
+            <PropertyRef Name="IDPhieuDuThuong" />
+          </Key>
+          <Property Name="IDPhieuDuThuong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDGame" Type="int" />
+          <Property Name="NgayXuat" Type="int" />
+          <Property Name="SoPhieu" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoDuThuong" Type="nvarchar" MaxLength="50" />
+          <Property Name="KetQua" Type="nvarchar" MaxLength="50" />
+          <Property Name="So" Type="nchar" MaxLength="10" />
+          <Property Name="Lo" Type="nchar" MaxLength="10" />
+          <Property Name="GhiChu" Type="nvarchar(max)" />
+          <Property Name="IDNguoiXuat" Type="int" Nullable="false" />
+          <Property Name="Loai" Type="int" />
+        </EntityType>
+        <EntityType Name="RutTien">
+          <Key>
+            <PropertyRef Name="IDRut" />
+          </Key>
+          <Property Name="IDRut" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgayRut" Type="int" />
+          <Property Name="IDTaiKhoan" Type="int" Nullable="false" />
+          <Property Name="SoTien" Type="float" />
+          <Property Name="NganHang" Type="nvarchar(max)" />
+          <Property Name="XacNhan" Type="bit" />
+          <Property Name="IDNguoiXacNhan" Type="int" />
+          <Property Name="NgayXacNhan" Type="int" />
+          <Property Name="HinhDinhKem" Type="nchar" MaxLength="10" />
+          <Property Name="LyDo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TaiKhoanHeThong">
+          <Key>
+            <PropertyRef Name="IDTaiKhoan" />
+          </Key>
+          <Property Name="IDTaiKhoan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaiKhoan" Type="nvarchar" MaxLength="50" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
+          <Property Name="LevelCode" Type="nchar" MaxLength="10" />
+          <Property Name="LaQuanLy" Type="bit" />
+          <Property Name="IDDaiLy" Type="int" />
+          <Property Name="HoTen" Type="nvarchar(max)" />
+          <Property Name="ChietKhau" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar(max)" />
+          <Property Name="SoTaiKhoan" Type="nvarchar" MaxLength="50" />
+          <Property Name="NganHang" Type="nvarchar(max)" />
+          <Property Name="KichHoat" Type="bit" />
+          <Property Name="ViTien" Type="float" />
+          <Property Name="NgayDangKy" Type="datetime" />
+          <Property Name="MaTaiKhoan" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TraThuong">
+          <Key>
+            <PropertyRef Name="IDTraThuong" />
+          </Key>
+          <Property Name="IDTraThuong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDNguoiTra" Type="int" Nullable="false" />
+          <Property Name="NgayTraThuong" Type="int" />
+          <Property Name="IDPhieuDuThuong" Type="int" />
+          <Property Name="SoPhieu" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoDuThuong" Type="nvarchar" MaxLength="50" />
+          <Property Name="So" Type="nchar" MaxLength="10" />
+          <Property Name="Lo" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_Games_TaiKhoanHeThong">
+          <End Role="TaiKhoanHeThong" Type="Self.TaiKhoanHeThong" Multiplicity="1" />
+          <End Role="Games" Type="Self.Games" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="Games">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NapTien_TaiKhoanNap">
+          <End Role="TaiKhoanHeThong" Type="Self.TaiKhoanHeThong" Multiplicity="1" />
+          <End Role="NapTien" Type="Self.NapTien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="NapTien">
+              <PropertyRef Name="IDTaiKhoanNap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NapTien_TaiKhoanXacNhan">
+          <End Role="TaiKhoanHeThong" Type="Self.TaiKhoanHeThong" Multiplicity="0..1" />
+          <End Role="NapTien" Type="Self.NapTien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="NapTien">
+              <PropertyRef Name="IDTaiKhoanXacNhan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhanQuyen_TaiKhoanHeThong">
+          <End Role="TaiKhoanHeThong" Type="Self.TaiKhoanHeThong" Multiplicity="1" />
+          <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="PhanQuyen">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhieuDuThuong_TaiKhoanHeThong">
+          <End Role="TaiKhoanHeThong" Type="Self.TaiKhoanHeThong" Multiplicity="1" />
+          <End Role="PhieuDuThuong" Type="Self.PhieuDuThuong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="PhieuDuThuong">
+              <PropertyRef Name="IDNguoiXuat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RutTien_TaiKhoanRut">
+          <End Role="TaiKhoanHeThong" Type="Self.TaiKhoanHeThong" Multiplicity="1" />
+          <End Role="RutTien" Type="Self.RutTien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="RutTien">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RutTien_TaiKhoanXacNhan">
+          <End Role="TaiKhoanHeThong" Type="Self.TaiKhoanHeThong" Multiplicity="0..1" />
+          <End Role="RutTien" Type="Self.RutTien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="RutTien">
+              <PropertyRef Name="IDNguoiXacNhan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoanHeThong_DaiLy">
+          <End Role="TaiKhoanHeThong" Type="Self.TaiKhoanHeThong" Multiplicity="0..1" />
+          <End Role="TaiKhoanHeThong1" Type="Self.TaiKhoanHeThong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="TaiKhoanHeThong1">
+              <PropertyRef Name="IDDaiLy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TraThuong_TaiKhoanTraThuong">
+          <End Role="TaiKhoanHeThong" Type="Self.TaiKhoanHeThong" Multiplicity="1" />
+          <End Role="TraThuong" Type="Self.TraThuong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="TraThuong">
+              <PropertyRef Name="IDNguoiTra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SoXoTuChon_BenTreModelStoreContainer">
+          <EntitySet Name="AutoGenerateCode" EntityType="Self.AutoGenerateCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dai" EntityType="Self.Dai" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Level" EntityType="Self.Level" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lo" EntityType="Self.Lo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NapTien" EntityType="Self.NapTien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhanQuyen" EntityType="Self.PhanQuyen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhieuDuThuong" EntityType="Self.PhieuDuThuong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RutTien" EntityType="Self.RutTien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiKhoanHeThong" EntityType="Self.TaiKhoanHeThong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TraThuong" EntityType="Self.TraThuong" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Games_TaiKhoanHeThong" Association="Self.FK_Games_TaiKhoanHeThong">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThong" />
+            <End Role="Games" EntitySet="Games" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NapTien_TaiKhoanNap" Association="Self.FK_NapTien_TaiKhoanNap">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThong" />
+            <End Role="NapTien" EntitySet="NapTien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NapTien_TaiKhoanXacNhan" Association="Self.FK_NapTien_TaiKhoanXacNhan">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThong" />
+            <End Role="NapTien" EntitySet="NapTien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhanQuyen_TaiKhoanHeThong" Association="Self.FK_PhanQuyen_TaiKhoanHeThong">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThong" />
+            <End Role="PhanQuyen" EntitySet="PhanQuyen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhieuDuThuong_TaiKhoanHeThong" Association="Self.FK_PhieuDuThuong_TaiKhoanHeThong">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThong" />
+            <End Role="PhieuDuThuong" EntitySet="PhieuDuThuong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RutTien_TaiKhoanRut" Association="Self.FK_RutTien_TaiKhoanRut">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThong" />
+            <End Role="RutTien" EntitySet="RutTien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RutTien_TaiKhoanXacNhan" Association="Self.FK_RutTien_TaiKhoanXacNhan">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThong" />
+            <End Role="RutTien" EntitySet="RutTien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoanHeThong_DaiLy" Association="Self.FK_TaiKhoanHeThong_DaiLy">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThong" />
+            <End Role="TaiKhoanHeThong1" EntitySet="TaiKhoanHeThong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraThuong_TaiKhoanTraThuong" Association="Self.FK_TraThuong_TaiKhoanTraThuong">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThong" />
+            <End Role="TraThuong" EntitySet="TraThuong" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SoXoTuChon_BenTreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dai">
+          <Key>
+            <PropertyRef Name="IDDai" />
+          </Key>
+          <Property Name="IDDai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaDai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TenDai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mien" Type="Int32"/>
+          <Property Name="Thu" Type="String" MaxLength="50" Unicode="true" FixedLength="false"/>
+        </EntityType>
+        <EntityType Name="Level">
+          <Key>
+            <PropertyRef Name="LevelID" />
+          </Key>
+          <Property Name="LevelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LevelCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="LevelName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Lo">
+          <Key>
+            <PropertyRef Name="IDLo" />
+          </Key>
+          <Property Name="IDLo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaLo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TenLo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Loai" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="menu_id" />
+          </Key>
+          <Property Name="menu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menu_title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="menu_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="menu_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="menu_valuepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="menu_parent_id" Type="Int32" />
+          <Property Name="menu_order" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PhanQuyen">
+          <Key>
+            <PropertyRef Name="AuthorDetailsID" />
+          </Key>
+          <Property Name="AuthorDetailsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menu_id" Type="Int32" />
+          <Property Name="them" Type="Boolean" />
+          <Property Name="sua" Type="Boolean" />
+          <Property Name="xoa" Type="Boolean" />
+          <Property Name="inan" Type="Boolean" />
+          <Property Name="IDTaiKhoan" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TaiKhoanHeThong" Relationship="SoXoTuChon_BenTreModel.FK_PhanQuyen_TaiKhoanHeThong" FromRole="PhanQuyen" ToRole="TaiKhoanHeThong" />
+        </EntityType>
+        <EntityType Name="PhieuDuThuong">
+          <Key>
+            <PropertyRef Name="IDPhieuDuThuong" />
+          </Key>
+          <Property Name="IDPhieuDuThuong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDGame" Type="Int32" />
+          <Property Name="NgayXuat" Type="Int32" />
+          <Property Name="SoPhieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoDuThuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KetQua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="So" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Lo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Loai" Type="Int32" />
+          <Property Name="IDNguoiXuat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TaiKhoanHeThong" Relationship="SoXoTuChon_BenTreModel.FK_PhieuDuThuong_TaiKhoanHeThong" FromRole="PhieuDuThuong" ToRole="TaiKhoanHeThong" />
+        </EntityType>
+        <EntityContainer Name="SoXoTuChon_BenTreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dais" EntityType="Self.Dai" />
+          <EntitySet Name="Levels" EntityType="Self.Level" />
+          <EntitySet Name="Loes" EntityType="Self.Lo" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="PhanQuyens" EntityType="Self.PhanQuyen" />
+          <EntitySet Name="PhieuDuThuongs" EntityType="Self.PhieuDuThuong" />
+          <EntitySet Name="AutoGenerateCodes" EntityType="SoXoTuChon_BenTreModel.AutoGenerateCode" />
+          <EntitySet Name="TaiKhoanHeThongs" EntityType="SoXoTuChon_BenTreModel.TaiKhoanHeThong" />
+          <AssociationSet Name="FK_PhanQuyen_TaiKhoanHeThong" Association="SoXoTuChon_BenTreModel.FK_PhanQuyen_TaiKhoanHeThong">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThongs" />
+            <End Role="PhanQuyen" EntitySet="PhanQuyens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhieuDuThuong_TaiKhoanHeThong" Association="SoXoTuChon_BenTreModel.FK_PhieuDuThuong_TaiKhoanHeThong">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThongs" />
+            <End Role="PhieuDuThuong" EntitySet="PhieuDuThuongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoanHeThong_TaiKhoanHeThong" Association="SoXoTuChon_BenTreModel.FK_TaiKhoanHeThong_TaiKhoanHeThong">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThongs" />
+            <End Role="TaiKhoanHeThong1" EntitySet="TaiKhoanHeThongs" />
+          </AssociationSet>
+          <EntitySet Name="Games" EntityType="SoXoTuChon_BenTreModel.Games" />
+          <EntitySet Name="NapTien" EntityType="SoXoTuChon_BenTreModel.NapTien" />
+          <EntitySet Name="RutTien" EntityType="SoXoTuChon_BenTreModel.RutTien" />
+          <EntitySet Name="TraThuong" EntityType="SoXoTuChon_BenTreModel.TraThuong" />
+          <AssociationSet Name="FK_Games_TaiKhoanHeThong" Association="SoXoTuChon_BenTreModel.FK_Games_TaiKhoanHeThong">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThongs" />
+            <End Role="Games" EntitySet="Games" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NapTien_TaiKhoanNap" Association="SoXoTuChon_BenTreModel.FK_NapTien_TaiKhoanNap">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThongs" />
+            <End Role="NapTien" EntitySet="NapTien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NapTien_TaiKhoanXacNhan" Association="SoXoTuChon_BenTreModel.FK_NapTien_TaiKhoanXacNhan">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThongs" />
+            <End Role="NapTien" EntitySet="NapTien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RutTien_TaiKhoanRut" Association="SoXoTuChon_BenTreModel.FK_RutTien_TaiKhoanRut">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThongs" />
+            <End Role="RutTien" EntitySet="RutTien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RutTien_TaiKhoanXacNhan" Association="SoXoTuChon_BenTreModel.FK_RutTien_TaiKhoanXacNhan">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThongs" />
+            <End Role="RutTien" EntitySet="RutTien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TraThuong_TaiKhoanTraThuong" Association="SoXoTuChon_BenTreModel.FK_TraThuong_TaiKhoanTraThuong">
+            <End Role="TaiKhoanHeThong" EntitySet="TaiKhoanHeThongs" />
+            <End Role="TraThuong" EntitySet="TraThuong" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="AutoGenerateCode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="TableName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="Int32" Nullable="false" />
+          <Property Name="TablePattern" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TaiKhoanHeThong">
+          <Key>
+            <PropertyRef Name="IDTaiKhoan" />
+          </Key>
+          <Property Name="IDTaiKhoan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LevelCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="LaQuanLy" Type="Boolean" />
+          <Property Name="HoTen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChietKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SoTaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NganHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KichHoat" Type="Boolean" />
+          <Property Name="ViTien" Type="Double" />
+          <Property Name="NgayDangKy" Type="DateTime" Precision="3" />
+          <Property Name="MaTaiKhoan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PhanQuyens" Relationship="SoXoTuChon_BenTreModel.FK_PhanQuyen_TaiKhoanHeThong" FromRole="TaiKhoanHeThong" ToRole="PhanQuyen" />
+          <NavigationProperty Name="PhieuDuThuongs" Relationship="SoXoTuChon_BenTreModel.FK_PhieuDuThuong_TaiKhoanHeThong" FromRole="TaiKhoanHeThong" ToRole="PhieuDuThuong" />
+          <Property Name="IDDaiLy" Type="Int32" />
+          <NavigationProperty Name="TaiKhoanHeThong1" Relationship="SoXoTuChon_BenTreModel.FK_TaiKhoanHeThong_TaiKhoanHeThong" FromRole="TaiKhoanHeThong" ToRole="TaiKhoanHeThong1" />
+          <NavigationProperty Name="TaiKhoanHeThong2" Relationship="SoXoTuChon_BenTreModel.FK_TaiKhoanHeThong_TaiKhoanHeThong" FromRole="TaiKhoanHeThong1" ToRole="TaiKhoanHeThong" />
+          <NavigationProperty Name="Games" Relationship="SoXoTuChon_BenTreModel.FK_Games_TaiKhoanHeThong" FromRole="TaiKhoanHeThong" ToRole="Games" />
+          <NavigationProperty Name="NapTien" Relationship="SoXoTuChon_BenTreModel.FK_NapTien_TaiKhoanNap" FromRole="TaiKhoanHeThong" ToRole="NapTien" />
+          <NavigationProperty Name="NapTien1" Relationship="SoXoTuChon_BenTreModel.FK_NapTien_TaiKhoanXacNhan" FromRole="TaiKhoanHeThong" ToRole="NapTien" />
+          <NavigationProperty Name="RutTien" Relationship="SoXoTuChon_BenTreModel.FK_RutTien_TaiKhoanRut" FromRole="TaiKhoanHeThong" ToRole="RutTien" />
+          <NavigationProperty Name="RutTien1" Relationship="SoXoTuChon_BenTreModel.FK_RutTien_TaiKhoanXacNhan" FromRole="TaiKhoanHeThong" ToRole="RutTien" />
+          <NavigationProperty Name="TraThuong" Relationship="SoXoTuChon_BenTreModel.FK_TraThuong_TaiKhoanTraThuong" FromRole="TaiKhoanHeThong" ToRole="TraThuong" />
+          </EntityType>
+        <Association Name="FK_PhanQuyen_TaiKhoanHeThong">
+          <End Type="SoXoTuChon_BenTreModel.TaiKhoanHeThong" Role="TaiKhoanHeThong" Multiplicity="1" />
+          <End Type="SoXoTuChon_BenTreModel.PhanQuyen" Role="PhanQuyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="PhanQuyen">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhieuDuThuong_TaiKhoanHeThong">
+          <End Type="SoXoTuChon_BenTreModel.TaiKhoanHeThong" Role="TaiKhoanHeThong" Multiplicity="1" />
+          <End Type="SoXoTuChon_BenTreModel.PhieuDuThuong" Role="PhieuDuThuong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="PhieuDuThuong">
+              <PropertyRef Name="IDNguoiXuat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoanHeThong_TaiKhoanHeThong">
+          <End Type="SoXoTuChon_BenTreModel.TaiKhoanHeThong" Role="TaiKhoanHeThong" Multiplicity="0..1" />
+          <End Type="SoXoTuChon_BenTreModel.TaiKhoanHeThong" Role="TaiKhoanHeThong1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="TaiKhoanHeThong1">
+              <PropertyRef Name="IDDaiLy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Games">
+          <Key>
+            <PropertyRef Name="IDGame" />
+          </Key>
+          <Property Name="IDGame" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayChoi" Type="Int32" />
+          <Property Name="MaDai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Lo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="So" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SoTien" Type="Double" />
+          <Property Name="IDTaiKhoan" Type="Int32" Nullable="false" />
+          <Property Name="XacNhan" Type="Boolean" />
+          <Property Name="ThoiGianDat" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Loai" Type="Int32" />
+          <NavigationProperty Name="TaiKhoanHeThong" Relationship="SoXoTuChon_BenTreModel.FK_Games_TaiKhoanHeThong" FromRole="Games" ToRole="TaiKhoanHeThong" />
+        </EntityType>
+        <EntityType Name="NapTien">
+          <Key>
+            <PropertyRef Name="IDNap" />
+          </Key>
+          <Property Name="IDNap" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayNap" Type="Int32" />
+          <Property Name="IDTaiKhoanNap" Type="Int32" Nullable="false" />
+          <Property Name="SoTien" Type="Double" />
+          <Property Name="NganHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="XacNhan" Type="Boolean" />
+          <Property Name="IDTaiKhoanXacNhan" Type="Int32" />
+          <Property Name="NgayXacNhan" Type="Int32" />
+          <Property Name="HinhDinhKem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LyDo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TaiKhoanHeThong" Relationship="SoXoTuChon_BenTreModel.FK_NapTien_TaiKhoanNap" FromRole="NapTien" ToRole="TaiKhoanHeThong" />
+          <NavigationProperty Name="TaiKhoanHeThong1" Relationship="SoXoTuChon_BenTreModel.FK_NapTien_TaiKhoanXacNhan" FromRole="NapTien" ToRole="TaiKhoanHeThong" />
+        </EntityType>
+        <EntityType Name="RutTien">
+          <Key>
+            <PropertyRef Name="IDRut" />
+          </Key>
+          <Property Name="IDRut" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayRut" Type="Int32" />
+          <Property Name="IDTaiKhoan" Type="Int32" Nullable="false" />
+          <Property Name="SoTien" Type="Double" />
+          <Property Name="NganHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="XacNhan" Type="Boolean" />
+          <Property Name="IDNguoiXacNhan" Type="Int32" />
+          <Property Name="NgayXacNhan" Type="Int32" />
+          <Property Name="HinhDinhKem" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="LyDo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TaiKhoanHeThong" Relationship="SoXoTuChon_BenTreModel.FK_RutTien_TaiKhoanRut" FromRole="RutTien" ToRole="TaiKhoanHeThong" />
+          <NavigationProperty Name="TaiKhoanHeThong1" Relationship="SoXoTuChon_BenTreModel.FK_RutTien_TaiKhoanXacNhan" FromRole="RutTien" ToRole="TaiKhoanHeThong" />
+        </EntityType>
+        <EntityType Name="TraThuong">
+          <Key>
+            <PropertyRef Name="IDTraThuong" />
+          </Key>
+          <Property Name="IDTraThuong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDNguoiTra" Type="Int32" Nullable="false" />
+          <Property Name="NgayTraThuong" Type="Int32" />
+          <Property Name="IDPhieuDuThuong" Type="Int32" />
+          <Property Name="SoPhieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoDuThuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="So" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Lo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="TaiKhoanHeThong" Relationship="SoXoTuChon_BenTreModel.FK_TraThuong_TaiKhoanTraThuong" FromRole="TraThuong" ToRole="TaiKhoanHeThong" />
+        </EntityType>
+        <Association Name="FK_Games_TaiKhoanHeThong">
+          <End Type="SoXoTuChon_BenTreModel.TaiKhoanHeThong" Role="TaiKhoanHeThong" Multiplicity="1" />
+          <End Type="SoXoTuChon_BenTreModel.Games" Role="Games" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="Games">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NapTien_TaiKhoanNap">
+          <End Type="SoXoTuChon_BenTreModel.TaiKhoanHeThong" Role="TaiKhoanHeThong" Multiplicity="1" />
+          <End Type="SoXoTuChon_BenTreModel.NapTien" Role="NapTien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="NapTien">
+              <PropertyRef Name="IDTaiKhoanNap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NapTien_TaiKhoanXacNhan">
+          <End Type="SoXoTuChon_BenTreModel.TaiKhoanHeThong" Role="TaiKhoanHeThong" Multiplicity="0..1" />
+          <End Type="SoXoTuChon_BenTreModel.NapTien" Role="NapTien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="NapTien">
+              <PropertyRef Name="IDTaiKhoanXacNhan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RutTien_TaiKhoanRut">
+          <End Type="SoXoTuChon_BenTreModel.TaiKhoanHeThong" Role="TaiKhoanHeThong" Multiplicity="1" />
+          <End Type="SoXoTuChon_BenTreModel.RutTien" Role="RutTien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="RutTien">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RutTien_TaiKhoanXacNhan">
+          <End Type="SoXoTuChon_BenTreModel.TaiKhoanHeThong" Role="TaiKhoanHeThong" Multiplicity="0..1" />
+          <End Type="SoXoTuChon_BenTreModel.RutTien" Role="RutTien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="RutTien">
+              <PropertyRef Name="IDNguoiXacNhan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TraThuong_TaiKhoanTraThuong">
+          <End Type="SoXoTuChon_BenTreModel.TaiKhoanHeThong" Role="TaiKhoanHeThong" Multiplicity="1" />
+          <End Type="SoXoTuChon_BenTreModel.TraThuong" Role="TraThuong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoanHeThong">
+              <PropertyRef Name="IDTaiKhoan" />
+            </Principal>
+            <Dependent Role="TraThuong">
+              <PropertyRef Name="IDNguoiTra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SoXoTuChon_BenTreModelStoreContainer" CdmEntityContainer="SoXoTuChon_BenTreEntities">
+          <EntitySetMapping Name="Dais">
+            <EntityTypeMapping TypeName="SoXoTuChon_BenTreModel.Dai">
+              <MappingFragment StoreEntitySet="Dai">
+                <ScalarProperty Name="IDDai" ColumnName="IDDai" />
+                <ScalarProperty Name="MaDai" ColumnName="MaDai" />
+                <ScalarProperty Name="TenDai" ColumnName="TenDai" />
+                <ScalarProperty Name="Mien" ColumnName="Mien" />
+                <ScalarProperty Name="Thu" ColumnName="Thu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Levels">
+            <EntityTypeMapping TypeName="SoXoTuChon_BenTreModel.Level">
+              <MappingFragment StoreEntitySet="Level">
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+                <ScalarProperty Name="LevelCode" ColumnName="LevelCode" />
+                <ScalarProperty Name="LevelName" ColumnName="LevelName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Loes">
+            <EntityTypeMapping TypeName="SoXoTuChon_BenTreModel.Lo">
+              <MappingFragment StoreEntitySet="Lo">
+                <ScalarProperty Name="IDLo" ColumnName="IDLo" />
+                <ScalarProperty Name="MaLo" ColumnName="MaLo" />
+                <ScalarProperty Name="TenLo" ColumnName="TenLo" />
+                <ScalarProperty Name="Loai" ColumnName="Loai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="SoXoTuChon_BenTreModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+                <ScalarProperty Name="menu_title" ColumnName="menu_title" />
+                <ScalarProperty Name="menu_description" ColumnName="menu_description" />
+                <ScalarProperty Name="menu_url" ColumnName="menu_url" />
+                <ScalarProperty Name="menu_valuepath" ColumnName="menu_valuepath" />
+                <ScalarProperty Name="menu_parent_id" ColumnName="menu_parent_id" />
+                <ScalarProperty Name="menu_order" ColumnName="menu_order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhanQuyens">
+            <EntityTypeMapping TypeName="SoXoTuChon_BenTreModel.PhanQuyen">
+              <MappingFragment StoreEntitySet="PhanQuyen">
+                <ScalarProperty Name="IDTaiKhoan" ColumnName="IDTaiKhoan" />
+                <ScalarProperty Name="AuthorDetailsID" ColumnName="AuthorDetailsID" />
+                <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+                <ScalarProperty Name="them" ColumnName="them" />
+                <ScalarProperty Name="sua" ColumnName="sua" />
+                <ScalarProperty Name="xoa" ColumnName="xoa" />
+                <ScalarProperty Name="inan" ColumnName="inan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhieuDuThuongs">
+            <EntityTypeMapping TypeName="SoXoTuChon_BenTreModel.PhieuDuThuong">
+              <MappingFragment StoreEntitySet="PhieuDuThuong">
+                <ScalarProperty Name="IDNguoiXuat" ColumnName="IDNguoiXuat" />
+                <ScalarProperty Name="Loai" ColumnName="Loai" />
+                <ScalarProperty Name="IDPhieuDuThuong" ColumnName="IDPhieuDuThuong" />
+                <ScalarProperty Name="IDGame" ColumnName="IDGame" />
+                <ScalarProperty Name="NgayXuat" ColumnName="NgayXuat" />
+                <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+                <ScalarProperty Name="SoDuThuong" ColumnName="SoDuThuong" />
+                <ScalarProperty Name="KetQua" ColumnName="KetQua" />
+                <ScalarProperty Name="So" ColumnName="So" />
+                <ScalarProperty Name="Lo" ColumnName="Lo" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AutoGenerateCodes">
+            <EntityTypeMapping TypeName="SoXoTuChon_BenTreModel.AutoGenerateCode">
+              <MappingFragment StoreEntitySet="AutoGenerateCode">
+                <ScalarProperty Name="TablePattern" ColumnName="TablePattern" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoanHeThongs">
+            <EntityTypeMapping TypeName="SoXoTuChon_BenTreModel.TaiKhoanHeThong">
+              <MappingFragment StoreEntitySet="TaiKhoanHeThong">
+                <ScalarProperty Name="IDDaiLy" ColumnName="IDDaiLy" />
+                <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
+                <ScalarProperty Name="NgayDangKy" ColumnName="NgayDangKy" />
+                <ScalarProperty Name="ViTien" ColumnName="ViTien" />
+                <ScalarProperty Name="KichHoat" ColumnName="KichHoat" />
+                <ScalarProperty Name="NganHang" ColumnName="NganHang" />
+                <ScalarProperty Name="SoTaiKhoan" ColumnName="SoTaiKhoan" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="ChietKhau" ColumnName="ChietKhau" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="LaQuanLy" ColumnName="LaQuanLy" />
+                <ScalarProperty Name="LevelCode" ColumnName="LevelCode" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+                <ScalarProperty Name="IDTaiKhoan" ColumnName="IDTaiKhoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="SoXoTuChon_BenTreModel.Games">
+              <MappingFragment StoreEntitySet="Games">
+                <ScalarProperty Name="Loai" ColumnName="Loai" />
+                <ScalarProperty Name="ThoiGianDat" ColumnName="ThoiGianDat" />
+                <ScalarProperty Name="XacNhan" ColumnName="XacNhan" />
+                <ScalarProperty Name="IDTaiKhoan" ColumnName="IDTaiKhoan" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="So" ColumnName="So" />
+                <ScalarProperty Name="Lo" ColumnName="Lo" />
+                <ScalarProperty Name="MaDai" ColumnName="MaDai" />
+                <ScalarProperty Name="NgayChoi" ColumnName="NgayChoi" />
+                <ScalarProperty Name="IDGame" ColumnName="IDGame" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NapTien">
+            <EntityTypeMapping TypeName="SoXoTuChon_BenTreModel.NapTien">
+              <MappingFragment StoreEntitySet="NapTien">
+                <ScalarProperty Name="LyDo" ColumnName="LyDo" />
+                <ScalarProperty Name="HinhDinhKem" ColumnName="HinhDinhKem" />
+                <ScalarProperty Name="NgayXacNhan" ColumnName="NgayXacNhan" />
+                <ScalarProperty Name="IDTaiKhoanXacNhan" ColumnName="IDTaiKhoanXacNhan" />
+                <ScalarProperty Name="XacNhan" ColumnName="XacNhan" />
+                <ScalarProperty Name="NganHang" ColumnName="NganHang" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="IDTaiKhoanNap" ColumnName="IDTaiKhoanNap" />
+                <ScalarProperty Name="NgayNap" ColumnName="NgayNap" />
+                <ScalarProperty Name="IDNap" ColumnName="IDNap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RutTien">
+            <EntityTypeMapping TypeName="SoXoTuChon_BenTreModel.RutTien">
+              <MappingFragment StoreEntitySet="RutTien">
+                <ScalarProperty Name="LyDo" ColumnName="LyDo" />
+                <ScalarProperty Name="HinhDinhKem" ColumnName="HinhDinhKem" />
+                <ScalarProperty Name="NgayXacNhan" ColumnName="NgayXacNhan" />
+                <ScalarProperty Name="IDNguoiXacNhan" ColumnName="IDNguoiXacNhan" />
+                <ScalarProperty Name="XacNhan" ColumnName="XacNhan" />
+                <ScalarProperty Name="NganHang" ColumnName="NganHang" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="IDTaiKhoan" ColumnName="IDTaiKhoan" />
+                <ScalarProperty Name="NgayRut" ColumnName="NgayRut" />
+                <ScalarProperty Name="IDRut" ColumnName="IDRut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TraThuong">
+            <EntityTypeMapping TypeName="SoXoTuChon_BenTreModel.TraThuong">
+              <MappingFragment StoreEntitySet="TraThuong">
+                <ScalarProperty Name="Lo" ColumnName="Lo" />
+                <ScalarProperty Name="So" ColumnName="So" />
+                <ScalarProperty Name="SoDuThuong" ColumnName="SoDuThuong" />
+                <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+                <ScalarProperty Name="IDPhieuDuThuong" ColumnName="IDPhieuDuThuong" />
+                <ScalarProperty Name="NgayTraThuong" ColumnName="NgayTraThuong" />
+                <ScalarProperty Name="IDNguoiTra" ColumnName="IDNguoiTra" />
+                <ScalarProperty Name="IDTraThuong" ColumnName="IDTraThuong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
